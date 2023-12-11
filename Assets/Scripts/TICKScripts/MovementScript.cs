@@ -26,17 +26,24 @@ public class MovementScript : MonoBehaviour
         if (Input.GetButtonDown("Jump") && OnGround())
         {
             rb.velocity = new Vector2(rb.velocity.x, jppower);
+            anim.SetBool("Jumpin", true);
         }
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
+        
 
         movement = rb.velocity;
 
         if (movement.x != 0)
         {
             anim.SetFloat("X", movement.x);
+            anim.SetBool("IsWalkin", true);
+        }
+        else
+        {
+            anim.SetBool("IsWalkin", false);
         }
     }
 

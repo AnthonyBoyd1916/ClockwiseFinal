@@ -19,7 +19,18 @@ public class PlatformMovement : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWPindex].transform.position, Time.deltaTime * platspeed);
         //if (Input.GetButtonDown("Q"))
         //{
-           // rb.velocity = new Vector2(rb.velocity.x, jppower);
+        // rb.velocity = new Vector2(rb.velocity.x, jppower);
         //}
+
+        if (Input.GetButtonDown("Timestop"))
+        {
+            platspeed = 0f;
+        }
+        if (Input.GetButtonUp("Timestop"))
+        {
+            platspeed = 2f;
+        }
     }
+
+
 }

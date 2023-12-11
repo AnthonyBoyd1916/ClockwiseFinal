@@ -34,5 +34,17 @@ public class RatScripts : MonoBehaviour
         {
             ratanim.SetFloat("X", -1);
         }
+
+
+        if (Input.GetButtonDown("Timestop"))
+        {
+            ratspeed = 0f;
+            ratanim.speed = 0;
+        }
+        else if (Input.GetButtonUp("Timestop"))
+        {
+            ratspeed = 2f;
+            ratanim.speed = 1;
+        }
     }
 }
