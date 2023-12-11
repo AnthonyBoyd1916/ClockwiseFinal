@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InstaDeathHazard
   - Ground
+  - VPs
   layers:
   - Default
   - TransparentFX
