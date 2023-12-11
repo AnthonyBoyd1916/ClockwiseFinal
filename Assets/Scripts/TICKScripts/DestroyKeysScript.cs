@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DestroyKeysScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] vps;
-    private int counter;
+    private int counter = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,7 +19,7 @@ public class DestroyKeysScript : MonoBehaviour
 
     private void Update()
     {
-        if (counter == 3 )
+        if (counter >= 3 )
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("VictoryScreen");
         }
