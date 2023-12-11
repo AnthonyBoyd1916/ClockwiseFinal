@@ -10,8 +10,16 @@ public class MovementScript : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform gc;
     [SerializeField] private LayerMask gl;
+    private Animator anim;
+    private Vector2 movement;
 
-    void Update()
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
+    
+    private void Update()
     {
         horz = Input.GetAxisRaw("Horizontal");
 
@@ -22,6 +30,13 @@ public class MovementScript : MonoBehaviour
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        }
+
+        movement = rb.velocity;
+
+        if (movement.x != 0)
+        {
+            anim.SetFloat("X", movement.x);
         }
     }
 
@@ -34,4 +49,14 @@ public class MovementScript : MonoBehaviour
     {
         rb.velocity = new Vector2(horz * speed, rb.velocity.y);
     }
+
+    //private void OnMovement()
+    //{
+        //movement = rb.velocity;
+
+        //if (movement.x != 0)
+        //{
+            //anim.SetFloat("X", movement.x);           ;
+        //}
+    //}
 }
